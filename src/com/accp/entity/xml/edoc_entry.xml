@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "//UNKNOWN/" "mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.dao.EdocEntryDao">
+	<select id="queryEdocEntrys" resultType="Edoc_entry">
+	SELECT *FROM edoc_entry
+	<where>
+		<if test="categoryId != null and categoryId !=''">and categoryId=#{categoryId}</if>
+	</where>
+	</select>
+	<select id="queryEdocEntry" resultType="Edoc_entry">
+	SELECT *FROM edoc_entry WHERE id=#{id}
+	</select>
+	<insert id="addEdocEntry">
+	INSERT INTO `edoc_entry` 
+	(`id`, 
+	`categoryId`, 
+	`title`, 
+	`summary`, 
+	`uploadUser`, 
+	`createDate`
+	)
+	VALUES
+	(default, 
+	#{categoryId}, 
+	#{title}, 
+	#{summary}, 
+	#{uploadUser}, 
+	#{createDate}
+	)
+
+	
+	</insert>
+	<delete id="deleteEdocEntry">
+	delete from edoc_entry
+	where id=#{id}
+	
+	</delete>
+	
+	
+	<update id="updateEdocEntry">
+		UPDATE `edoc_entry` 
+		SET
+	
+		`categoryId` = #{categoryId}, 
+		`title` = #{title}, 
+		`summary` = #{summary}, 
+		`uploadUser` = #{uploadUser}, 
+		`createDate` = #{createDate}
+	
+		WHERE
+		`id` = #{id}
+	</update>
+</mapper>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "//UNKNOWN/" "mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.dao.EdocCategoryDao">
+	<select id="queryEdocCategorys" resultType="Edoc_category">
+		SELECT * FROM EDOC_CATEGORY
+	</select>
+</mapper>
